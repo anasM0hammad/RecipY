@@ -6,16 +6,6 @@
 <br>
 <div class="row">
 	<div class="col-sm-12">
-		<a href="#" class="list-group-item clearfix" *ngFor="let key of recipes; let i = index">
-			<div class="pull-left">
-				<h4 class="list-group-item-heading">{{ recipes[i].name }}</h4>
-				<p class="list-group-item-text">{{ recipes[i].description }}</p>
-			</div>
-			<span class="pull-right">
-				<img src="{{ recipes[i].imagePath }}" alt="" class="img-responsive" style="max-height: 50px;">
-			</span>
-		</a>
-		<br>
-		<app-recipe-item></app-recipe-item>
+	  <app-recipe-item *ngFor = " let key of recipes" [recipe] = "key"></app-recipe-item>
 	</div>
 </div>
