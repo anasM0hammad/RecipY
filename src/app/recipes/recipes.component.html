@@ -2,7 +2,8 @@
 	<div class="col-sm-5">
 		<app-recipe-list (recipeWasSelected) = "selectedRecipe = $event"></app-recipe-list>
 	</div>
-	<div class="col-sm-7">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-6">
 		<app-recipe-detail *ngIf = "selectedRecipe ; else infoText" [displayedRecipe] = "selectedRecipe" ></app-recipe-detail>
 		<ng-template #infoText>
 			<p class="text-center"> No Recipe Selected</p>
