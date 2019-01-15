@@ -1,3 +1,4 @@
+import { EventEmitter } from '@angular/core' ;
 import { Recipe } from './recipe.model' ;
 
 export class RecipeService {
@@ -8,6 +9,9 @@ export class RecipeService {
     new Recipe('Chiken Leg' , 'All time Favorite' , 'https://cdn0.iconfinder.com/data/icons/cartoon-food/512/Food_512-22.png')
 
 	];
+
+
+	recipeSelected = new EventEmitter<Recipe>();
 
 
 	getRecipe(){
