@@ -1,3 +1,6 @@
+<div class="alert alert-success" *ngIf="addStatus == true "><b>Ingredient Added</b></div>
+
+
 <div class="row">
 	<div class="col-sm-12">
 		<img src="{{ displayedRecipe.imagePath }}" style="max-height: 100px; margin: 0 auto;"  class="img-responsive">
@@ -7,6 +10,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<h1 class="text-center">{{ displayedRecipe.name }}</h1>
+		<hr>
 	</div>
 </div>
 
@@ -25,9 +29,11 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<p>{{ displayedRecipe.description }}</p>
+		<p class="text-center"><b>{{ displayedRecipe.description }}</b></p>
 	</div>
 </div>
+
+<br>
 
 <div class="row">
 	<div class="col-sm-12">

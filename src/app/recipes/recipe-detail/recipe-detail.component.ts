@@ -11,6 +11,7 @@ import { Ingredient } from '../../shared/ingredient.model';
 export class RecipeDetailComponent implements OnInit {
 
  @Input() displayedRecipe: Recipe ;
+ addStatus: Boolean = false ;
 
 
   constructor(private recipeService: RecipeService) { }
@@ -21,6 +22,7 @@ export class RecipeDetailComponent implements OnInit {
  addToShoppingList(){
 
  	this.recipeService.sendToShoppingList(this.displayedRecipe.ingredients);
+ 	this.addStatus = true ;
  }
 
 
