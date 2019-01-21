@@ -1,0 +1,22 @@
+
+
+.heading {
+	font-size: 70px;
+	font-family: "courier new";
+	color: #FFFFFF;
+}
+
+.landing{
+	background-image: url('images/background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 91vh;
+	overflow: auto;
+	padding: 10px;
+	margin-top: -20px;
+}
+
+.mybtn{
+	margin: 10px;
+}
