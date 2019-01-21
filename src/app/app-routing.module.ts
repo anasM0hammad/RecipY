@@ -7,7 +7,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component' 
 
 const appRoutes: Routes = [
 
- {path: '' , component:HomeComponent , pathMatch: "full"},
+ {path: '' , component:HomeComponent },
  {path: 'recipes' , component: RecipesComponent },
  {path: 'shopping-list' , component: ShoppingListComponent }
 
