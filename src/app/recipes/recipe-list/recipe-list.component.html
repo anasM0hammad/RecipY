@@ -6,6 +6,6 @@
 <br>
 <div class="row">
 	<div class="col-sm-12">
-	  <app-recipe-item *ngFor = " let key of recipes" [recipe] = "key" ></app-recipe-item>
+	  <app-recipe-item *ngFor = " let key of recipes; let i = index " [recipe] = "key" routerLink="/recipes/{{i}}" ></app-recipe-item>
 	</div>
 </div>
