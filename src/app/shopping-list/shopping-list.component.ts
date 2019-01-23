@@ -8,12 +8,11 @@ import { ShoppingListService } from './shopping-list.service' ;
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent implements OnInit , OnDestroy {
 
 	ingredients: Ingredient[] ;
   private subscription: Subscription ;
-
-
+  
   // addIngredient(ingredient){
 
   //   if(ingredient.name === "" || ingredient.amount == null){
