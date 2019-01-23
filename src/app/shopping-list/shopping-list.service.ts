@@ -48,6 +48,14 @@ edittingIndex = new Subject<number>();
        this.ingredients[index] = updatedIngredient ; 
        this.ingredientChanged.next(this.ingredients.slice()) ;
     }
+
+
+
+    //DELETING ITEM AND UPDATING ARRAY
+    deleteIngredient(index: number){
+    	this.ingredients.splice(index , 1) ;
+    	this.ingredientChanged.next(this.ingredients.slice()) ;
+    }
   
 	
 }
