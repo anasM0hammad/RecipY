@@ -1,4 +1,4 @@
-import { EventEmitter } from '@angular/core' ;
+import { EventEmitter , OnDestroy } from '@angular/core' ;
 import { Subject } from 'rxjs' ;
 import { Ingredient } from '../shared/ingredient.model' ;
 
@@ -29,9 +29,11 @@ ingredientChanged = new Subject<Ingredient[]>();
  }
 
 addRecipeIngredients(ingredients: Ingredient[]){
-	this.ingredients.push(...ingredients);
+	 this.ingredients.push(...ingredients);
 	 this.ingredientChanged.next(this.ingredients.slice());
 }
+
+ 
 
 	
 }
