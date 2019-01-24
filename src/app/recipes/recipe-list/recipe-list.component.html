@@ -1,11 +1,13 @@
+<h3 class="text-center"><i><b>My Recipy List</b></i></h3>
+<br>
 <div class="row">
 	<div class="col-sm-12">
-		<button class="btn btn-success" (click)="onNewRecipe()" >New Recipe</button>
+	  <app-recipe-item *ngFor = " let key of recipes; let i = index " [recipe] = "key" [index]="i" ></app-recipe-item>
 	</div>
 </div>
 <br>
 <div class="row">
 	<div class="col-sm-12">
-	  <app-recipe-item *ngFor = " let key of recipes; let i = index " [recipe] = "key" [index]="i" ></app-recipe-item>
+		<button class="btn btn-success" (click)="onNewRecipe()" >New Recipe</button>
 	</div>
 </div>

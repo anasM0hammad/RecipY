@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms' ;
+import { ReactiveFormsModule } from '@angular/forms' ;
 
 import { AppComponent } from './app.component';
 import { headerComponent } from './header/header.component';
@@ -16,7 +18,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { FormsModule } from '@angular/forms' ;
 
 
 
@@ -40,7 +41,8 @@ import { FormsModule } from '@angular/forms' ;
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
