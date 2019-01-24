@@ -1,3 +1,5 @@
+<div class="alert alert-success" *ngIf="editDone"><b>Edit Successful</b></div>
+
 <div class="row">
 	<div class="col-xs-12">
 		<h3 class="text-center"><i><b>Recipe Edit Form</b></i></h3>
@@ -39,7 +41,7 @@
 								<input type="number" class="form-control" formControlName="amount">
 							</div>
 							<div class="col-xs-2">
-								<button class="btn btn-danger btn-sm" style="border-radius: 50%;">X</button>
+								<button class="btn btn-danger btn-sm" style="border-radius: 50%;" (click)="deleteIngredient()">X</button>
 							</div>
 						</div>
 					</div>
@@ -48,7 +50,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<button type="button" class="btn btn-primary" (click)="addIngredientControl()">Add Ingredient</button>
-					<button type="button" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
+					<button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
 					<button type="button" class="btn btn-danger">Cancel</button>
 				</div>
 			</div>
