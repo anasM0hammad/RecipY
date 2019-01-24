@@ -1,4 +1,5 @@
 <div class="alert alert-success" *ngIf="editDone"><b>Edit Successful</b></div>
+<div class="alert alert-success" *ngIf="addDone"><b>New Recipe Added</b></div>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -18,7 +19,7 @@
 						<label>Image Path</label>
 						<input type="text" class="form-control" formControlName = "imagePath">
 					</div>
-					<img src="{{recipeForm.value['imagePath']}}" *ngIf="recipeForm.value['imagePath']" class="img-responsive" style="height: 70px;">
+					<img src="{{recipeForm.value['imagePath']}}" *ngIf="recipeForm.value['imagePath']" class="img-responsive" style="max-height: 70px;">
 				</div>
 			</div>
 			<br>
@@ -42,7 +43,7 @@
 								<input type="number" class="form-control" formControlName="amount">
 							</div>
 							<div class="col-xs-2">
-								<button class="btn btn-danger btn-sm" style="border-radius: 50%;" (click)="deleteIngredient()">X</button>
+								<button class="btn btn-danger btn-sm" style="border-radius: 50%;" (click)="deleteIngredient(i)">X</button>
 							</div>
 						</div>
 					</div>

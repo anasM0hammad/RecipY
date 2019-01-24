@@ -58,4 +58,18 @@ export class RecipeService {
     this.recipeChanged.next(this.recipes.slice());
   }
 
+  //ADDING NEW RECIPE
+  addNewRecipe(newRecipe: Recipe){
+    this.recipes.push(newRecipe);
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+  //DELETING RECIPE
+
+  deleteRecipe(index: number){
+    this.recipes.splice(index , 1) ;
+    this.recipeChanged.next(this.recipes.slice());
+  }
+
+
 }

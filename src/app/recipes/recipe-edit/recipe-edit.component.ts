@@ -16,6 +16,7 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup ;
   editMode = false ;
   editDone = false ;
+  addDone  = false ;
 
   constructor(private route: ActivatedRoute , private recipeService: RecipeService , private router: Router) { }
 
@@ -78,11 +79,17 @@ export class RecipeEditComponent implements OnInit {
       //UPDATING RECIPE
       this.recipeService.updateRecipe(this.id , recipe) ;
       this.editDone = true ;
+       this.router.navigate(['recipes' , this.id]);
     }
 
     else{
       //NEW RECIPE
+      this.recipeService.addNewRecipe(recipe);
+      this.addDone = true ;
+      this.router.navigate(['recipes']);
     }
+
+    this.recipeForm.reset();
  }
 
 
@@ -99,7 +106,12 @@ export class RecipeEditComponent implements OnInit {
 
  onCancel(){
    this.recipeForm.reset();
-   this.router.navigate(['recipes']);
+   this.router.navigate(['recipes' , this.id]);
+ }
+
+
+ deleteIngredient(index: number){
+    
  }
 
 }
