@@ -18,9 +18,10 @@
 						<label>Image Path</label>
 						<input type="text" class="form-control" formControlName = "imagePath">
 					</div>
-					<img src="" class="img-responsive" >
+					<img src="{{recipeForm.value['imagePath']}}" *ngIf="recipeForm.value['imagePath']" class="img-responsive" style="height: 70px;">
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="form-group">
@@ -50,8 +51,9 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<button type="button" class="btn btn-primary" (click)="addIngredientControl()">Add Ingredient</button>
-					<button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
-					<button type="button" class="btn btn-danger">Cancel</button>
+					<button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid" *ngIf="!editMode">Save</button>
+					<button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid" *ngIf="editMode">Edit</button>
+					<button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
 				</div>
 			</div>
 		</form>
