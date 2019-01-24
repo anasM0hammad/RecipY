@@ -13,3 +13,7 @@ textarea.ng-invalid.ng-touched{
 textarea.ng-valid.ng-touched{
 	border-color: green;
 }
+
+.btn{
+	margin: 5px;
+}
