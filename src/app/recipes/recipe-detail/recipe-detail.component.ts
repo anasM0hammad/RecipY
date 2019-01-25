@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params , Router } from '@angular/router' ;
 import { Recipe } from '../recipe.model' ;
 import { RecipeService } from '../recipe.service' ;
@@ -9,7 +9,7 @@ import { Ingredient } from '../../shared/ingredient.model';
   templateUrl: './recipe-detail.component.html',
   styleUrls: ['./recipe-detail.component.css']
 })
-export class RecipeDetailComponent implements OnInit {
+export class RecipeDetailComponent implements OnInit{
 
  displayedRecipe: Recipe ;
  addStatus: Boolean = false ;
@@ -26,6 +26,8 @@ export class RecipeDetailComponent implements OnInit {
 	    }
 	   );
   }
+
+ 
 
  
 

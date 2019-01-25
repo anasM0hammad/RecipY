@@ -49,7 +49,13 @@ export class RecipeService {
   }
 
   getRecipeByIndex(index:number){
-    return this.recipes[index];
+    if(this.recipes[index]){
+      return this.recipes[index];
+    }
+    else{
+      return new Recipe('Select a Recipe' , '' , '' , []);
+    }
+
   }
 
   //UPDATING THE RECIPE
