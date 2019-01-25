@@ -8,7 +8,17 @@ export class DataStorageService{
   constructor(private http: HttpClient , private recipeService: RecipeService){}
   
   storeRecipes(){
-    return this.http.put('https://recipy-1b32c.firebaseio.com/recipes.json' , this.recipeService.getRecipe() )
+    return this.http.put('https://recipy-1b32c.firebaseio.com/recipes.json' , this.recipeService.getRecipe()) ;
+  }
+
+  getRecipes(){
+  	this.http.get('https://recipy-1b32c.firebaseio.com/recipes.json').subscribe(
+       
+       (recipes) => {
+       	 this.recipeService.setRecipes(recipes);
+       }
+  
+  	 );
   }
 
 }

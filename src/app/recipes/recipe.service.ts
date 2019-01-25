@@ -13,25 +13,25 @@ export class RecipeService {
 
   private recipes : Recipe[] =  [
 
-    new Recipe('Pastry' ,
-      'Unique Apple Cream Pastry' ,
-      'http://www.myiconfinder.com/uploads/iconsets/256-256-7275aebc435153f103fe46c706a7f332-pastry.png',
-      [
-          new Ingredient('Apples' , 3) ,
-          new Ingredient('cream' , 2) 
+    // new Recipe('Pastry' ,
+    //   'Unique Apple Cream Pastry' ,
+    //   'http://www.myiconfinder.com/uploads/iconsets/256-256-7275aebc435153f103fe46c706a7f332-pastry.png',
+    //   [
+    //       new Ingredient('Apples' , 3) ,
+    //       new Ingredient('cream' , 2) 
         
-      ]),
+    //   ]),
 
-    new Recipe('Chiken Leg' ,
-               'All time Favorite' , 
-    	         'https://cdn0.iconfinder.com/data/icons/cartoon-food/512/Food_512-22.png',            
-	               [
-				          new Ingredient('Leg' , 3) ,
-				          new Ingredient('Onions' , 2) 
+    // new Recipe('Chiken Leg' ,
+    //            'All time Favorite' , 
+    // 	         'https://cdn0.iconfinder.com/data/icons/cartoon-food/512/Food_512-22.png',            
+	   //             [
+				//           new Ingredient('Leg' , 3) ,
+				//           new Ingredient('Onions' , 2) 
 	        
-	               ]
+	   //             ]
      
-    	       )
+    // 	       )
 	];
 
 
@@ -71,5 +71,11 @@ export class RecipeService {
     this.recipeChanged.next(this.recipes.slice());
   }
 
+
+  //GETTING RECIPES FROM DB
+  setRecipes(recipes: Recipe[]){
+    this.recipes = recipes ;
+    this.recipeChanged.next(this.recipes.slice()) ;
+  }
 
 }
