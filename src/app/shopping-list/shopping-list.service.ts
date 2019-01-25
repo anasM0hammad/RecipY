@@ -7,15 +7,11 @@ export class ShoppingListService {
 ingredientChanged = new Subject<Ingredient[]>();	
 edittingIndex = new Subject<number>();
 
- private ingredients: Ingredient[] = [
-  
-	];
-
-
+ private ingredients: Ingredient[] = [];
  
 
 	 getIngredient(){
-	 	return this.ingredients.slice();
+	 	  return this.ingredients.slice();
 	 }
 
 	 getOneIngredient(index: number){
@@ -54,5 +50,13 @@ edittingIndex = new Subject<number>();
     	this.ingredientChanged.next(this.ingredients.slice()) ;
     }
   
+
+   //SETTING THE VALUE OF INGREDIENTS IN ARRAY FROM DB
+    setIngredients(ingredients){
+    	
+	    	this.ingredients = ingredients ;
+	    	this.ingredientChanged.next(this.ingredients.slice());
+      
+    }
 	
 }

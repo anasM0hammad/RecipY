@@ -39,4 +39,13 @@ export class DataStorageService{
   	return this.http.put('https://recipy-1b32c.firebaseio.com/ingredients.json' , this.shoppingListService.getIngredient()) ;
   }
 
+
+  getIngredients(){
+  	this.http.get('https://recipy-1b32c.firebaseio.com/ingredients.json').subscribe(
+      (data)=> {
+      	this.shoppingListService.setIngredients(data) ;
+      }
+  	)
+  }
+
 }

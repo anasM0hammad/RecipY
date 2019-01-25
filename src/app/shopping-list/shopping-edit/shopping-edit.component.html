@@ -1,3 +1,6 @@
+<div class="alert alert-success" *ngIf="changeStatus"><b>Changes Successful</b></div>
+<div class="alert alert-danger" *ngIf="changeStatusDelete"><b>Item Deleted</b></div>
+<br>
 <div class="row">
 	<div class="col-xs-12">
 		<form (ngSubmit) = "onAddItem(f)" #f="ngForm">

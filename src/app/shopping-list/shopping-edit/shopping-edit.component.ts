@@ -17,6 +17,8 @@ export class ShoppingEditComponent implements OnInit {
   edittedItem: Ingredient ;
   edittedItemIndex: number
   editMode: Boolean = false ;
+  changeStatus:boolean = false ;
+  changeStatusDelete: boolean = false ;
 
   
   constructor(private shoppingListService : ShoppingListService , private dataStorage: DataStorageService) { }
@@ -33,6 +35,7 @@ export class ShoppingEditComponent implements OnInit {
             });
         }
       );
+
   }
 
   onAddItem(form: NgForm){
@@ -57,7 +60,8 @@ export class ShoppingEditComponent implements OnInit {
 
     this.dataStorage.storeIngredients().subscribe(
         (data) => {
-          console.log(data);
+           this.changeStatus = true ;
+            this.changeStatusDelete = false ;
         }
       );
      
@@ -67,6 +71,12 @@ export class ShoppingEditComponent implements OnInit {
     onDeleteItem(){
       this.shoppingListService.deleteIngredient(this.edittedItemIndex) ;
       this.onClear();
+       this.dataStorage.storeIngredients().subscribe(
+        (data) => {
+           this.changeStatusDelete = true ;
+            this.changeStatus = false ;
+        }
+      );
     }
 
   
