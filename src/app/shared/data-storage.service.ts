@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core' ;
 import { HttpClient } from '@angular/common/http' ;
 import { RecipeService } from '../recipes/recipe.service' ;
-import { Observables } from 'rxjs' ;
+import { Observable } from 'rxjs' ;
 import { map  } from 'rxjs/operators' ;
+import { ShoppingListService } from '../shopping-list/shopping-list.service' ;
 
  
 @Injectable()
 export class DataStorageService{
   
-  constructor(private http: HttpClient , private recipeService: RecipeService){}
+  constructor(private http: HttpClient , private recipeService: RecipeService , private shoppingListService: ShoppingListService){}
   
   storeRecipes(){
     return this.http.put('https://recipy-1b32c.firebaseio.com/recipes.json' , this.recipeService.getRecipe()) ;
@@ -16,7 +17,7 @@ export class DataStorageService{
 
   getRecipes(){
   	this.http.get('https://recipy-1b32c.firebaseio.com/recipes.json').pipe(map(
-       (recipes) => {
+       (recipes:any) => {
        	for( let recipe of recipes){
        		if(!recipe['ingredients']){
        			recipe['ingredients'] = [] ;
@@ -30,6 +31,12 @@ export class DataStorageService{
        	 this.recipeService.setRecipes(recipes);
        }
   	 );
+  }
+
+
+
+  storeIngredients(){
+  	return this.http.put('https://recipy-1b32c.firebaseio.com/ingredients.json' , this.shoppingListService.getIngredient()) ;
   }
 
 }

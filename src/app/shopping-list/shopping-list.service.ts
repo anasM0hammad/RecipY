@@ -8,9 +8,6 @@ ingredientChanged = new Subject<Ingredient[]>();
 edittingIndex = new Subject<number>();
 
  private ingredients: Ingredient[] = [
-        
-        new Ingredient('Apples' , 3),
-        new Ingredient('Chocolate Sauce' , 1)
   
 	];
 

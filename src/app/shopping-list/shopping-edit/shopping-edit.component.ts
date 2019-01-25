@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Ingredient } from '../../shared/ingredient.model' ;
 import { ShoppingListService } from '../shopping-list.service' ;
+import { DataStorageService } from '../../shared/data-storage.service' ;
 import { NgForm } from '@angular/forms' ;
  
 @Component({
@@ -18,7 +19,7 @@ export class ShoppingEditComponent implements OnInit {
   editMode: Boolean = false ;
 
   
-  constructor(private shoppingListService : ShoppingListService) { }
+  constructor(private shoppingListService : ShoppingListService , private dataStorage: DataStorageService) { }
 
    ngOnInit() {
     this.subscription = this.shoppingListService.edittingIndex.subscribe(
@@ -53,6 +54,12 @@ export class ShoppingEditComponent implements OnInit {
      this.shoppingListService.addIngredient(newIngredient);
      form.reset();
     }
+
+    this.dataStorage.storeIngredients().subscribe(
+        (data) => {
+          console.log(data);
+        }
+      );
      
   }
 
