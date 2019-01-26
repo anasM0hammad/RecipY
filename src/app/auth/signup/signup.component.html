@@ -1,4 +1,7 @@
 <div class="container">
+	<div class="alert alert-danger" *ngIf="!passwordMatched"><b>Password Do Not Matched</b></div>
+	<div class="alert alert-success" *ngIf="submitted"><b>Registration Successfull</b></div>
+
 	<h2 class="text-center"><b>Registration Form</b></h2>
 	<br>
 		 <div class="row">
@@ -8,16 +11,17 @@
 			  	<div class="well">
 				   <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
 				  	<div class="form-group">
-				  		<label><b>Name</b></label>
-				  		<input class="form-control" type="text" name="name" ngModel required>
-				  	</div>
-				  	<div class="form-group">
 				  		<label><b>Email</b></label>
 				  		<input type="email" class="form-control" name="email" ngModel required email>
 				  	</div>
 				  	<div class="form-group">
 				  		<label><b>Password</b></label>
-				  		<input type="password" class="form-control" name="password" ngModel required>
+				  		<input type="password" class="form-control" name="password" ngModel required #password="ngModel">
+				  	</div>
+				  	<div class="form-group">
+				  		<label><b>Confirm Password</b></label>
+				  		<input class="form-control" type="password" name="confirmPassword" ngModel required #confirmPW = "ngModel">
+				  		<p class="text-danger" *ngIf="confirmPW.value !== password.value">Password Not Matched !</p>
 				  	</div>
 				  	<br>
             <button class="btn btn-primary btn-block" [disabled]="!f.valid">Sign Up</button>
