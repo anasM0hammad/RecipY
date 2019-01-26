@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core' ;
 import { DataStorageService } from '../shared/data-storage.service' ;
 import { Subscription } from 'rxjs' ;
+import { Router } from '@angular/router' ;
 import { AuthService } from '../auth/auth.service' ;
 
 @Component({
@@ -17,7 +18,7 @@ export class headerComponent implements OnInit{
 // 	}
 
 
- constructor(private dataStorage: DataStorageService , private authService: AuthService) {}
+ constructor(private dataStorage: DataStorageService , private authService: AuthService , private router: Router) {}
 
  saveData(){
    this.dataStorage.storeRecipes().subscribe(
@@ -37,6 +38,7 @@ export class headerComponent implements OnInit{
 
  onLogout(){
  	this.authService.logout();
+ 	this.router.navigate(['/']);
  }
 
 

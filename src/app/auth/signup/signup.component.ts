@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { NgForm } from '@angular/forms' ;
+import { Router } from '@angular/router' ;
 
 import { AuthService } from '../auth.service';
 
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   passwordMatched: boolean  = true;
   submitted: boolean = false ;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService , private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,7 @@ export class SignupComponent implements OnInit {
       else{
       	this.authService.signup(email , password) ;
       	this.submitted = true ;
+         this.router.navigate(['recipes']);
       	form.reset();
       }
     }
