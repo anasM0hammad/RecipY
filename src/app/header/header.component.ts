@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core' ;
 import { DataStorageService } from '../shared/data-storage.service' ;
 import { Subscription } from 'rxjs' ;
+import { AuthService } from '../auth/auth.service' ;
 
 @Component({
  selector : 'app-header',
@@ -16,7 +17,7 @@ export class headerComponent implements OnInit{
 // 	}
 
 
- constructor(private dataStorage: DataStorageService) {}
+ constructor(private dataStorage: DataStorageService , private authService: AuthService) {}
 
  saveData(){
    this.dataStorage.storeRecipes().subscribe(
