@@ -1,3 +1,28 @@
-<p>
-  signin works!
-</p>
+<div class="container">
+	<!-- <div class="alert alert-danger" *ngIf="!passwordMatched"><b>Invalid Emaill And Password</b></div> -->
+	<!-- <div class="alert alert-success" *ngIf="submitted"><b>Login Successfull</b></div> -->
+
+	<h2 class="text-center"><b>Login</b></h2>
+	<br>
+		 <div class="row">
+	  	 <div class="col-sm-2"></div>
+		  		<div class="col-sm-8 myForm">
+			  	<br>
+			  	<div class="well">
+				   <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+				  	<div class="form-group">
+				  		<label><b>Email</b></label>
+				  		<input type="email" class="form-control" name="email" ngModel required email>
+				  	</div>
+				  	<div class="form-group">
+				  		<label><b>Password</b></label>
+				  		<input type="password" class="form-control" name="password" ngModel required #password="ngModel">
+				  	</div>
+				  	<br>
+            <button class="btn btn-primary btn-block" [disabled]="!f.valid">Login</button>
+				  </form> 
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+	</div>
+</div>
