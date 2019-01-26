@@ -6,21 +6,21 @@
 		  		<div class="col-sm-8 myForm">
 			  	<br>
 			  	<div class="well">
-				   <form>
+				   <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
 				  	<div class="form-group">
 				  		<label><b>Name</b></label>
-				  		<input class="form-control" type="text" name="name">
+				  		<input class="form-control" type="text" name="name" ngModel required>
 				  	</div>
 				  	<div class="form-group">
 				  		<label><b>Email</b></label>
-				  		<input type="email" class="form-control" name="email">
+				  		<input type="email" class="form-control" name="email" ngModel required email>
 				  	</div>
 				  	<div class="form-group">
 				  		<label><b>Password</b></label>
-				  		<input type="password" class="form-control" name="password">
+				  		<input type="password" class="form-control" name="password" ngModel required>
 				  	</div>
 				  	<br>
-            <button class="btn btn-primary btn-block">Sign Up</button>
+            <button class="btn btn-primary btn-block" [disabled]="!f.valid">Sign Up</button>
 				  </form> 
 				</div>
 				<div class="col-sm-2"></div>

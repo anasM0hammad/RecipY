@@ -1,3 +1,11 @@
 .myForm{
 	padding: 10px;
 }
+
+input.ng-invalid.ng-touched{
+	border-color: red;
+}
+
+input.ng-valid.ng-touched{
+	border-color: green;
+}
