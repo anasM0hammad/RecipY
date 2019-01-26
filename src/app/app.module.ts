@@ -23,6 +23,7 @@ import { DataStorageService } from './shared/data-storage.service';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component' ;
 import { AuthService } from './auth/auth.service' ;
+import { AuthGuard } from './auth/auth-gaurd.service';
 
 
 
@@ -52,7 +53,7 @@ import { AuthService } from './auth/auth.service' ;
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ShoppingListService, RecipeService , DataStorageService , AuthService],
+  providers: [ShoppingListService, RecipeService , DataStorageService , AuthService , AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

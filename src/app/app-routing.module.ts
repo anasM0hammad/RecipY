@@ -9,6 +9,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component' ;
 import { SignupComponent } from './auth/signup/signup.component' ;
 import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuard } from './auth/auth-gaurd.service';
 
 const appRoutes: Routes = [
 
@@ -16,7 +17,7 @@ const appRoutes: Routes = [
  {path: 'signup' , component:SignupComponent},
  {path: 'signin' , component:SigninComponent},
 
- {path: 'recipes' , component: RecipesComponent , children: [
+ {path: 'recipes' , component: RecipesComponent, canActivate:[AuthGuard] , children: [
    {path: '' , component: RecipeStartComponent},
    {path: 'new' , component: RecipeEditComponent},
    {path: ':id' , component: RecipeDetailComponent },
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
    ] 
  },
 
- {path: 'shopping-list' , component: ShoppingListComponent },
+ {path: 'shopping-list' , component: ShoppingListComponent ,  canActivate:[AuthGuard] },
  {path: '**' , redirectTo: ''}
 ];
 
