@@ -4,19 +4,25 @@ import { RecipeService } from '../recipes/recipe.service' ;
 import { Observable } from 'rxjs' ;
 import { map  } from 'rxjs/operators' ;
 import { ShoppingListService } from '../shopping-list/shopping-list.service' ;
+import { AuthService } from '../auth/auth.service';
 
  
 @Injectable()
 export class DataStorageService{
   
-  constructor(private http: HttpClient , private recipeService: RecipeService , private shoppingListService: ShoppingListService){}
+  constructor(private http: HttpClient ,
+   private recipeService: RecipeService ,
+    private shoppingListService: ShoppingListService,
+    private authService: AuthService){}
   
   storeRecipes(){
-    return this.http.put('https://recipy-1b32c.firebaseio.com/recipes.json' , this.recipeService.getRecipe()) ;
+     const token: string = this.authService.getToken() ;
+    return this.http.put('https://recipy-1b32c.firebaseio.com/recipes.json?auth='+token , this.recipeService.getRecipe()) ;
   }
 
   getRecipes(){
-  	this.http.get('https://recipy-1b32c.firebaseio.com/recipes.json').pipe(map(
+    const token: string = this.authService.getToken() ;
+  	this.http.get('https://recipy-1b32c.firebaseio.com/recipes.json?auth=' + token).pipe(map(
        (recipes:any) => {
        	for( let recipe of recipes){
        		if(!recipe['ingredients']){
@@ -36,12 +42,14 @@ export class DataStorageService{
 
 
   storeIngredients(){
-  	return this.http.put('https://recipy-1b32c.firebaseio.com/ingredients.json' , this.shoppingListService.getIngredient()) ;
+     const token: string = this.authService.getToken() ;
+  	return this.http.put('https://recipy-1b32c.firebaseio.com/ingredients.json?auth=' + token , this.shoppingListService.getIngredient()) ;
   }
 
 
   getIngredients(){
-  	this.http.get('https://recipy-1b32c.firebaseio.com/ingredients.json').subscribe(
+     const token: string = this.authService.getToken() ;
+  	this.http.get('https://recipy-1b32c.firebaseio.com/ingredients.json?auth=' + token).subscribe(
       (data)=> {
       	this.shoppingListService.setIngredients(data) ;
       }
