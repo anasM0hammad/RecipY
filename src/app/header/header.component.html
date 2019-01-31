@@ -1,10 +1,17 @@
 <nav class="navbar navbar-inverse" style="border-radius: 0;">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a routerLink="/" class="navbar-brand">RecipY</a>
+			
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" aria-controls="bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand">RecipY</a>
 		</div>
 
-		<div class="collapse navbar-collapse">
+		 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li routerLinkActive = "active"><a routerLink="/recipes">Recipes</a></li>
 				<li routerLinkActive = "active"><a routerLink="/shopping-list">Shopping List</a></li>
@@ -26,3 +33,4 @@
 		</div>
 	</div>
 </nav>
+

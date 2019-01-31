@@ -32,10 +32,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12">
-					<div class="form-group" formArrayName="ingredients">
+				<div class="col-xs-12" formArrayName="ingredients">
+					<div class="form-group">
 						<label>Ingredients</label>
-						<div class="row" *ngFor="let key of recipeForm.get('ingredients').controls; let i =index" [formGroupName]="i"><br>
+						<div class="row" *ngFor="let key of recipeForm.get('ingredients')['controls']; let i =index" [formGroupName]="i"><br>
 							<div class="col-xs-8">
 								<input type="text" class="form-control" formControlName="name">
 							</div>
